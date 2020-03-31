@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tudo Sobre Google Glass</title>
+    <link rel="stylesheet" href="_css/estilo.css">
+    <link rel="stylesheet" href="_css/form.css">
+</head>
+
+<script src="_javascript/funcoes.js"></script>
+
+<script>
+    function calc_total() {
+        var qtd = parseInt(document.getElementById("cQtd").value)
+        tot = qtd * 1500
+        document.getElementById("cTot").value = tot
+    }
+</script>
+
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+            </hgroup>
+
+            <img id="icone" src="_imagens/contato.png">
+
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul typer="1">
+                    <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a
+                            href="index.html">Home</a></li>
+                    <li onmouseover="mudaFoto('_imagens/especificacoes.png')"
+                        onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                    <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a
+                            href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+                        <a href="multimidia.html">Multimídia</a></li>
+                    <li><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <section id="corpo-full">
+            <article id="noticiaprincipal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale Conosco > Contato</h3>
+                        <h1>Formulário de Contato</h1>
+                        <h2>por Pedro Afonso</h2>
+                        <h3 class="direita">Atualizado em 16/03/2020</h3>
+                    </hgroup>
+                </header>
+
+                <form method="POST" id="fContato" action="mailto:pir_skt@hotmail.com" oninput="calc_total()">
+                    <fieldset id="usuario">
+                        <legend>Identificação do Usuário</legend>
+                        <p><label for="cNome">Nome: </label><input type="text" name="tNome" id="cNome" size="50" maxlength="50" placeholder=" Nome Completo"></p>
+                        <p><label for="cSenha">Senha: </label><input type="password" name="tSenha" id="cSenha" size="50" maxlength="18" placeholder=" Crie uma Senha de 8 Digitos"></p>
+                        <p><label for="cMail">E-mail: </label><input type="email" name="tMail" id="cMail" size="50" maxlength="40" placeholder=" Digite seu Email"></p>
+                        <fieldset id="sexo">
+                            <legend>Sexo:</legend>
+                            <input type="radio" name="tSexo" id="cMas" checked>
+                            <label for="cMas">Masculino</label><br>
+                            <input type="radio" name="tSexo" id="cFem">
+                            <label for="cFem">Feminino</label>
+                        </fieldset>
+                        <p><label for="cDate">Data de Nascimento: </label><input type="date" name="tDate" id="cDate"></p>
+                    </fieldset>
+                    <br>
+                    <fieldset id="endereco">
+                        <legend>Endereço do Usuário</legend>
+                        <p><label for="cRua">Logradouro: </label><input type="text" name="tRua" id="cRua" size="50" maxlength="80" placeholder=" Rua, Av, Trav, ..."> </p>
+                        <p><label for="cNum">Número: </label><input type="number" name="tNum" id="cNum" min="0" max="9999"></p>
+                        <p>
+                            <label for="cEst">Estado: </label> 
+                            <select name="tEst" id="cEst">
+                                <optgroup label="Regiao Sudeste">
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option selected value="SP">Sao Paulo</option>
+                                    <option value="MG">Minas Gerais</option>
+                                </optgroup>
+                                <optgroup label="Regiao Sul">
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="SC">Santa Catarina</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p><label for="cCid">Cidade: </label><input list="cidades" type="text" name="tCid" id="cCid" size="50" maxlength="50" placeholder=" Sua Cidade"></p>
+                        <datalist id="cidades">
+                            <option value="Rio de Janeiro"></option>
+                            <option value="Nova Iguacu"></option>
+                            <option value="Niteroi"></option>
+                            <option value="Sao Bento do Sapucai"></option>
+                        </datalist>
+                    </fieldset>
+                    <br>
+                    <fieldset id="mensagem">
+                        <legend>Mensagem do Usuário</legend>
+                        <p><label for="cUrg">Grau de Urgência: </label>Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2">Max</p>
+                        <p><label for="cMen">Mensagem: </label><textarea name="tMen" id="cMen" cols="50" rows="10" placeholder=" Digite sua Mensagem"></textarea></p>
+                    </fieldset>
+                    <br>
+                    <fieldset id="pedido">
+                        <legend>Quero um Google Glass</legend>
+                        <p><input type="checkbox" name="tPed" id="cPed" checked><label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                        <p><label for="cCor">Cor: </label><input type="color" name="tCor" id="cCor" value="#0000ff"></p>
+                        <p><label for="cQtd">Quantidade: </label><input type="number" name="tQd" id="cQtd" min="0" max="5" value="0"></p>
+                        <p><label for="cTot"></label>Preço Total: R$ <input type="text" name="tTot" id="cTot" placeholder=" Total da Pagar" readonly></p>
+                    </fieldset>
+                    <br>
+
+                    <!-- <input type="submit" value="Enviar"> -->
+                    <input id="botao" type="image" src="_imagens/botao-enviar.png" name="tEnviar">
+                </form>
+            </article>
+        </section>
+
+        <footer id="rodape">
+            <p>
+                Copyright &copy; 2020 - by Pedro Afonso &trade; <br>
+                <a href="https://www.facebook.com/" target="_blank">Facebook</a> | <a href="https://twitter.com/?lang=en" target="_blank">Twitter</a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
